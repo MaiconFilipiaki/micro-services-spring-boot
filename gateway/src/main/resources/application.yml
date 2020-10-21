@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: gateway
+server:
+  port: 8080
+  servlet:
+    context-path: /gateway
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+    fetch-registry: true
+    register-with-eureka: true
+zuul:
+  sensitive-headers: Cookie
+  routes:
+    shopping:
+      path: /shopping-service/**
+    cart:
+      path: /cart-service/**
+
+# ribbon.eureka.enabled=false
+#ribbon:
+#  eureka:
+#    enabled: false
+#
+#    eureka.client.serviceUrl.defaultZone = http: // localhost: 8761 / eureka
+#
+#    eureka.client.registerWithEureka = false
+#    eureka.client.fetchRegistry = true
+#
+#    zuul.routes.courseservice.path = / course-service / **
+#    zuul.routes.courseservice.serviceId = serviço-curso
