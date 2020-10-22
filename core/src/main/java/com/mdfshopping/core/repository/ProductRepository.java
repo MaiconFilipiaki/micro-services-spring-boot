@@ -13,4 +13,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("Select p from Product p where p.description like %:word%")
     List<Product> findAllByDescription(String word);
 
+    List<Product> findByIdIn(List<Long> ids);
+
 }

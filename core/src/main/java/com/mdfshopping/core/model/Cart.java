@@ -19,6 +19,10 @@ import java.util.List;
 @NoArgsConstructor
 public class Cart implements Serializable {
 
+//    public Cart(final List<Product> products) {
+//        this.products = products;
+//    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
